@@ -44,16 +44,17 @@ body {
 
 /* Настройки круглого знака в шапке */
 .header-sign {
-    height: 50px;
+    height: 100px; /* Было 50px, теперь 100px — в 2 раза крупнее */
     width: auto;
     object-fit: contain;
-    filter: drop-shadow(0 0 10px rgba(223, 186, 107, 0.1));
+    filter: drop-shadow(0 0 15px rgba(223, 186, 107, 0.1));
     transition: var(--transition);
 }
 
-.header-sign:hover {
-    transform: scale(1.05) rotate(15deg);
-    filter: drop-shadow(0 0 20px rgba(223, 186, 107, 0.4));
+/* Ховер-эффект: полный переворот на 360 градусов без наклона */
+.logo-block:hover .header-sign {
+    transform: rotate(360deg); /* Ровно один полный оборот */
+    filter: drop-shadow(0 0 25px rgba(223, 186, 107, 0.45));
 }
 
 .nav-right {
@@ -187,5 +188,8 @@ body {
     }
     .footer-branding {
         padding: 60px 20px;
+    }
+    .header-sign {
+        height: 60px; /* На смартфонах делаем чуть аккуратнее, чтобы не перекрывать текст */
     }
 }
