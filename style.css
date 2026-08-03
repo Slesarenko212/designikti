@@ -1,12 +1,12 @@
 /* 1. Дизайн-система */
 :root {
-    --bg-dark: #0a0a0a; /* Еще более глубокий черный для премиального эффекта */
+    --bg-dark: #0a0a0a;
     --gold-main: #F6DA68;
     --gold-light: #f3dc9d;
     --text-white: #ffffff;
     --text-muted: #8e8e93;
     --font-main: 'Montserrat', sans-serif;
-    --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* 2. Сбросы */
@@ -24,7 +24,7 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* 3. Шапка сайта (разнесена по краям, не отвлекает от центра) */
+/* 3. Шапка сайта */
 .header {
     display: flex;
     justify-content: space-between;
@@ -64,125 +64,152 @@ body {
     color: var(--bg-dark);
 }
 
-/* 4. Главный экран (Центрированный, как обои / постер) */
+/* 4. Главный экран */
 .hero {
-    min-height: 100vh;
+    min-height: 85vh; /* Немного уменьшили высоту, чтобы подвал красиво приподнимался снизу */
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 20px;
+    padding: 120px 20px 60px 20px;
     position: relative;
-    /* Мягкое золотистое свечение из самого центра */
-    background: radial-gradient(circle, #1a1610 0%, var(--bg-dark) 70%);
+    background: radial-gradient(circle at 50% 40%, #1a1610 0%, var(--bg-dark) 60%);
 }
 
 .hero-center-content {
     text-align: center;
-    max-width: 800px;
+    max-width: 850px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Блок крупных логотипов */
-.main-branding-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px; /* Расстояние между круглым знаком и надписью */
-    margin-bottom: 40px;
-}
-
-/* Крупный круглый знак А */
-.main-hero-sign {
-    height: 140px; /* Крупный размер, все детали видны */
-    width: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 0 20px rgba(223, 186, 107, 0.15));
-    transition: var(--transition);
-}
-
-/* Крупная надпись Design by A. Ikti */
-.main-hero-text {
-    height: 60px; /* Заменяет собой H1 заголовок */
-    width: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 0 15px rgba(223, 186, 107, 0.1));
-    transition: var(--transition);
-}
-
-/* Эффект легкого «дыхания» при наведении на весь блок бренда */
-.main-branding-group:hover .main-hero-sign {
-    transform: scale(1.05) translateY(-5px);
-    filter: drop-shadow(0 0 35px rgba(223, 186, 107, 0.35));
-}
-
-.main-branding-group:hover .main-hero-text {
-    transform: scale(1.02);
-    filter: drop-shadow(0 0 25px rgba(223, 186, 107, 0.25));
-}
-
-/* Тексты под логотипом */
 .hero-subtitle {
     color: var(--gold-main);
-    font-size: 12px;
+    font-size: 13px;
     text-transform: uppercase;
-    letter-spacing: 6px;
-    margin-bottom: 20px;
+    letter-spacing: 5px;
+    margin-bottom: 25px;
     font-weight: 600;
+}
+
+.hero-title {
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+}
+
+.gold-text {
+    color: var(--gold-main);
+    background: linear-gradient(45deg, var(--gold-main), var(--gold-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .hero-description {
     color: var(--text-muted);
     font-size: 16px;
     line-height: 1.8;
-    max-width: 580px;
+    max-width: 620px;
     margin-bottom: 45px;
     font-weight: 300;
 }
 
-/* Кнопка действия */
 .btn-primary {
     display: inline-block;
-    border: 1px solid var(--gold-main);
-    color: var(--gold-main);
+    background-color: var(--gold-main);
+    color: var(--bg-dark);
     text-decoration: none;
     padding: 18px 45px;
     font-size: 14px;
     font-weight: 600;
     border-radius: 4px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: var(--transition);
-    background-color: transparent;
+    box-shadow: 0 4px 15px rgba(223, 186, 107, 0.2);
 }
 
 .btn-primary:hover {
-    background-color: var(--gold-main);
-    color: var(--bg-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(223, 186, 107, 0.2);
+    background-color: var(--gold-light);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(223, 186, 107, 0.35);
 }
 
-/* 5. Адаптивность под мобильные телефоны */
+/* 5. Крупный брендовый подвал (Footer) */
+.footer-branding {
+    background-color: #0f0f0f; /* Чуть светлее основного фона для отделения зоны */
+    border-top: 1px solid #1a1a1a;
+    padding: 80px 20px 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+}
+
+.footer-logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Расстояние между круглым знаком и крупной надписью */
+    max-width: 90%;
+}
+
+/* Круглый знак в подвале */
+.footer-sign {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 15px rgba(223, 186, 107, 0.1));
+    transition: var(--transition);
+}
+
+/* ОГРОМНАЯ надпись — теперь её точно видно */
+.footer-text {
+    width: 100%;
+    max-width: 650px; /* Задаем большую ширину, чтобы текст растянулся крупно */
+    height: auto; /* Высота подстроится автоматически, чтобы не ломать пропорции */
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(223, 186, 107, 0.15));
+transition: var(--transition);
+}
+
+/* Эффект глубокого свечения при наведении на подвал */
+.footer-logo-container:hover .footer-sign {
+    transform: scale(1.05) translateY(-5px);
+    filter: drop-shadow(0 0 25px rgba(223, 186, 107, 0.3));
+}
+
+.footer-logo-container:hover .footer-text {
+    filter: drop-shadow(0 0 30px rgba(223, 186, 107, 0.3));
+}
+
+.footer-copy {
+    color: #444444;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+
+/* 6. Адаптивность */
 @media (max-width: 768px) {
     .header {
         padding: 20px 5%;
     }
     .header a:not(.btn-nav) {
-        display: none; /* Прячем левое меню на телефонах */
+        display: none;
     }
-    .main-hero-sign {
-        height: 100px; /* Чуть уменьшаем на мобильных, чтобы вошло в экран */
+    .hero-title {
+        font-size: 34px;
     }
-    .main-hero-text {
-        height: 45px;
+    .footer-branding {
+        padding: 60px 20px 30px 20px;
     }
-    .hero-subtitle {
-        letter-spacing: 4px;
-        font-size: 11px;
+    .footer-sign {
+        height: 80px;
     }
-    .hero-description {
-        font-size: 14px;
+    .footer-text {
+        max-width: 100%; /* На мобилках займет всю ширину экрана */
     }
 }
