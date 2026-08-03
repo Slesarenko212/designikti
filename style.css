@@ -24,7 +24,7 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* 3. Шапка сайта */
+/* 3. Шапка сайта (Лого слева, меню справа) */
 .header {
     display: flex;
     justify-content: space-between;
@@ -37,7 +37,32 @@ body {
     z-index: 10;
 }
 
-.header a {
+.logo-block {
+    display: flex;
+    align-items: center;
+}
+
+/* Настройки круглого знака в шапке */
+.header-sign {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(223, 186, 107, 0.1));
+    transition: var(--transition);
+}
+
+.header-sign:hover {
+    transform: scale(1.05) rotate(15deg);
+    filter: drop-shadow(0 0 20px rgba(223, 186, 107, 0.4));
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Расстояние между Услуги и Портфолио */
+}
+
+.nav-right a {
     color: var(--text-muted);
     text-decoration: none;
     font-size: 13px;
@@ -47,32 +72,19 @@ body {
     transition: var(--transition);
 }
 
-.header a:hover {
+.nav-right a:hover {
     color: var(--gold-light);
-}
-
-.header .btn-nav {
-    border: 1px solid rgba(223, 186, 107, 0.4);
-    padding: 10px 24px;
-    border-radius: 4px;
-    color: var(--gold-main);
-}
-
-.header .btn-nav:hover {
-    border-color: var(--gold-main);
-    background-color: var(--gold-main);
-    color: var(--bg-dark);
 }
 
 /* 4. Главный экран */
 .hero {
-    min-height: 85vh; /* Немного уменьшили высоту, чтобы подвал красиво приподнимался снизу */
+    min-height: 85vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 120px 20px 60px 20px;
+    padding: 140px 20px 40px 20px;
     position: relative;
-    background: radial-gradient(circle at 50% 40%, #1a1610 0%, var(--bg-dark) 60%);
+    background: radial-gradient(circle at 50% 45%, #1a1610 0%, var(--bg-dark) 60%);
 }
 
 .hero-center-content {
@@ -116,80 +128,53 @@ body {
     font-weight: 300;
 }
 
-.btn-primary {
+/* Новая контурная кнопка «Обсудить проект» (стиль бывшей кнопки Связаться) */
+.btn-outline {
     display: inline-block;
-    background-color: var(--gold-main);
-    color: var(--bg-dark);
+    border: 1px solid rgba(223, 186, 107, 0.4);
+    color: var(--gold-main);
     text-decoration: none;
-    padding: 18px 45px;
+    padding: 16px 40px;
     font-size: 14px;
     font-weight: 600;
     border-radius: 4px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     transition: var(--transition);
-    box-shadow: 0 4px 15px rgba(223, 186, 107, 0.2);
+    background-color: transparent;
 }
 
-.btn-primary:hover {
-    background-color: var(--gold-light);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(223, 186, 107, 0.35);
+.btn-outline:hover {
+    border-color: var(--gold-main);
+    background-color: var(--gold-main);
+    color: var(--bg-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(223, 186, 107, 0.2);
 }
 
-/* 5. Крупный брендовый подвал (Footer) */
+/* 5. Подвал (Footer) только с крупной надписью */
 .footer-branding {
-    background-color: #0f0f0f; /* Чуть светлее основного фона для отделения зоны */
-    border-top: 1px solid #1a1a1a;
-    padding: 80px 20px 40px 20px;
+    background-color: #0b0b0b;
+    border-top: 1px solid #141414;
+    padding: 90px 20px;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 40px;
-    text-align: center;
 }
 
-.footer-logo-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px; /* Расстояние между круглым знаком и крупной надписью */
-    max-width: 90%;
-}
-
-/* Круглый знак в подвале */
-.footer-sign {
-    height: 100px;
-    width: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 0 15px rgba(223, 186, 107, 0.1));
-    transition: var(--transition);
-}
-
-/* ОГРОМНАЯ надпись — теперь её точно видно */
+/* Огромная, эффектная надпись в самом низу сайта */
 .footer-text {
     width: 100%;
-    max-width: 650px; /* Задаем большую ширину, чтобы текст растянулся крупно */
-    height: auto; /* Высота подстроится автоматически, чтобы не ломать пропорции */
+    max-width: 700px; /* Сделали еще немного крупнее */
+    height: auto;
     object-fit: contain;
-    filter: drop-shadow(0 0 20px rgba(223, 186, 107, 0.15));
-transition: var(--transition);
+    filter: drop-shadow(0 0 15px rgba(223, 186, 107, 0.12));
+    transition: var(--transition);
 }
 
-/* Эффект глубокого свечения при наведении на подвал */
-.footer-logo-container:hover .footer-sign {
-    transform: scale(1.05) translateY(-5px);
-    filter: drop-shadow(0 0 25px rgba(223, 186, 107, 0.3));
-}
-
-.footer-logo-container:hover .footer-text {
+.footer-branding:hover .footer-text {
+    transform: scale(1.02);
     filter: drop-shadow(0 0 30px rgba(223, 186, 107, 0.3));
-}
-
-.footer-copy {
-    color: #444444;
-    font-size: 12px;
-    letter-spacing: 1px;
-    margin-top: 20px;
 }
 
 /* 6. Адаптивность */
@@ -197,19 +182,10 @@ transition: var(--transition);
     .header {
         padding: 20px 5%;
     }
-    .header a:not(.btn-nav) {
-        display: none;
-    }
     .hero-title {
         font-size: 34px;
     }
     .footer-branding {
-        padding: 60px 20px 30px 20px;
-    }
-    .footer-sign {
-        height: 80px;
-    }
-    .footer-text {
-        max-width: 100%; /* На мобилках займет всю ширину экрана */
+        padding: 60px 20px;
     }
 }
