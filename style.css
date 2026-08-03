@@ -26,12 +26,12 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* 3. Шапка сайта (Header) */
+/* 3. Шапка сайта (Header) с использованием изображений */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 10%;
+    padding: 20px 10%;
     position: absolute;
     width: 100%;
     top: 0;
@@ -42,51 +42,36 @@ body {
 .logo-block {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px; /* Расстояние между знаком и надписью */
     cursor: pointer;
 }
 
-.logo-circle {
-    width: 45px;
-    height: 45px;
-    border: 1px solid var(--gold-main);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-cursive);
-    font-size: 24px;
-    color: var(--gold-main);
-    font-style: italic;
+/* Настройки для круглого знака */
+.logo-img-sign {
+    height: 50px; /* Высота круга в шапке */
+    width: auto;
+    object-fit: contain;
     transition: var(--transition);
-    box-shadow: 0 0 0px rgba(223, 186, 107, 0);
 }
 
-.logo-text {
-    font-family: var(--font-cursive);
-    font-size: 22px;
-    font-style: italic;
-    color: var(--gold-light);
-    letter-spacing: 1px;
+/* Настройки для текстовой надписи */
+.logo-img-text {
+    height: 30px; /* Надпись делаем чуть аккуратнее и меньше знака */
+    width: auto;
+    object-fit: contain;
+    transition: var(--transition);
 }
 
-.logo-text span {
-    font-family: var(--font-main);
-    font-size: 11px;
-    font-style: normal;
-    text-transform: uppercase;
-    display: block;
-    color: var(--text-muted);
-    letter-spacing: 3px;
-    margin-top: -2px;
+/* Интерактивный эффект: при наведении мышки круг мягко увеличивается и подсвечивается */
+.logo-block:hover .logo-img-sign {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 8px rgba(223, 186, 107, 0.5));
 }
 
-/* Ховер-эффект для логотипа в вашем стиле */
-.logo-block:hover .logo-circle {
-    transform: rotate(360deg);
-    color: var(--bg-dark);
-    background-color: var(--gold-main);
-    box-shadow: 0 0 15px rgba(223, 186, 107, 0.4);
+/* Надпись при наведении становится чуть ярче */
+.logo-block:hover .logo-img-text {
+    opacity: 0.9;
+    filter: drop-shadow(0 0 5px rgba(223, 186, 107, 0.2));
 }
 
 .nav {
