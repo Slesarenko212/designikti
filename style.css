@@ -1,21 +1,19 @@
-/* 1. Дизайн-система и переменные */
+/* 1. Дизайн-система */
 :root {
-    --bg-dark: #111111;
-    --bg-card: #161616;
+    --bg-dark: #0a0a0a; /* Еще более глубокий черный для премиального эффекта */
     --gold-main: #F6DA68;
     --gold-light: #f3dc9d;
     --text-white: #ffffff;
-    --text-muted: #a0a0a0;
+    --text-muted: #8e8e93;
     --font-main: 'Montserrat', sans-serif;
-    --font-cursive: 'Playfair Display', serif; /* Элегантный акцентный шрифт */
-    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* 2. Базовые сбросы */
+/* 2. Сбросы */
 * {
     margin: 0;
     padding: 0;
-    box-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
@@ -26,12 +24,12 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* 3. Шапка сайта (Header) с использованием изображений */
+/* 3. Шапка сайта (разнесена по краям, не отвлекает от центра) */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 10%;
+    padding: 30px 8%;
     position: absolute;
     width: 100%;
     top: 0;
@@ -39,152 +37,150 @@ body {
     z-index: 10;
 }
 
-.logo-block {
-    display: flex;
-    align-items: center;
-    gap: 12px; /* Расстояние между знаком и надписью */
-    cursor: pointer;
-}
-
-/* Настройки для круглого знака */
-.logo-img-sign {
-    height: 50px; /* Высота круга в шапке */
-    width: auto;
-    object-fit: contain;
-    transition: var(--transition);
-}
-
-/* Настройки для текстовой надписи */
-.logo-img-text {
-    height: 30px; /* Надпись делаем чуть аккуратнее и меньше знака */
-    width: auto;
-    object-fit: contain;
-    transition: var(--transition);
-}
-
-/* Интерактивный эффект: при наведении мышки круг мягко увеличивается и подсвечивается */
-.logo-block:hover .logo-img-sign {
-    transform: scale(1.08);
-    filter: drop-shadow(0 0 8px rgba(223, 186, 107, 0.5));
-}
-
-/* Надпись при наведении становится чуть ярче */
-.logo-block:hover .logo-img-text {
-    opacity: 0.9;
-    filter: drop-shadow(0 0 5px rgba(223, 186, 107, 0.2));
-}
-
-.nav {
-    display: flex;
-    align-items: center;
-    gap: 35px;
-}
-
-.nav a {
+.header a {
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     transition: var(--transition);
 }
 
-.nav a:hover {
+.header a:hover {
     color: var(--gold-light);
 }
 
-.nav .btn-nav {
-    border: 1px solid var(--gold-main);
-    padding: 8px 20px;
+.header .btn-nav {
+    border: 1px solid rgba(223, 186, 107, 0.4);
+    padding: 10px 24px;
     border-radius: 4px;
     color: var(--gold-main);
 }
 
-.nav .btn-nav:hover {
+.header .btn-nav:hover {
+    border-color: var(--gold-main);
     background-color: var(--gold-main);
     color: var(--bg-dark);
 }
 
-/* 4. Главный экран (Hero Section) */
+/* 4. Главный экран (Центрированный, как обои / постер) */
 .hero {
     min-height: 100vh;
     display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 0 10%;
+    padding: 0 20px;
     position: relative;
-    background: radial-gradient(circle at 80% 20%, #1e1b15 0%, var(--bg-dark) 50%);
+    /* Мягкое золотистое свечение из самого центра */
+    background: radial-gradient(circle, #1a1610 0%, var(--bg-dark) 70%);
 }
 
-.hero-container {
-    max-width: 750px;
-    margin-top: 60px;
+.hero-center-content {
+    text-align: center;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* Блок крупных логотипов */
+.main-branding-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px; /* Расстояние между круглым знаком и надписью */
+    margin-bottom: 40px;
+}
+
+/* Крупный круглый знак А */
+.main-hero-sign {
+    height: 140px; /* Крупный размер, все детали видны */
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(223, 186, 107, 0.15));
+    transition: var(--transition);
+}
+
+/* Крупная надпись Design by A. Ikti */
+.main-hero-text {
+    height: 60px; /* Заменяет собой H1 заголовок */
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 15px rgba(223, 186, 107, 0.1));
+    transition: var(--transition);
+}
+
+/* Эффект легкого «дыхания» при наведении на весь блок бренда */
+.main-branding-group:hover .main-hero-sign {
+    transform: scale(1.05) translateY(-5px);
+    filter: drop-shadow(0 0 35px rgba(223, 186, 107, 0.35));
+}
+
+.main-branding-group:hover .main-hero-text {
+    transform: scale(1.02);
+    filter: drop-shadow(0 0 25px rgba(223, 186, 107, 0.25));
+}
+
+/* Тексты под логотипом */
 .hero-subtitle {
     color: var(--gold-main);
-    font-size: 13px;
+    font-size: 12px;
     text-transform: uppercase;
-    letter-spacing: 4px;
-    margin-bottom: 25px;
+    letter-spacing: 6px;
+    margin-bottom: 20px;
     font-weight: 600;
-}
-
-.hero-title {
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -1px;
-    margin-bottom: 25px;
-}
-
-.gold-text {
-    color: var(--gold-main);
-    background: linear-gradient(45deg, var(--gold-main), var(--gold-light));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .hero-description {
     color: var(--text-muted);
     font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 40px;
+    line-height: 1.8;
+    max-width: 580px;
+    margin-bottom: 45px;
     font-weight: 300;
 }
 
+/* Кнопка действия */
 .btn-primary {
     display: inline-block;
-    background-color: var(--gold-main);
-    color: var(--bg-dark);
+    border: 1px solid var(--gold-main);
+    color: var(--gold-main);
     text-decoration: none;
-    padding: 16px 35px;
-    font-size: 15px;
+    padding: 18px 45px;
+    font-size: 14px;
     font-weight: 600;
     border-radius: 4px;
-    letter-spacing: 0.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     transition: var(--transition);
-    box-shadow: 0 4px 15px rgba(223, 186, 107, 0.15);
+    background-color: transparent;
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(223, 186, 107, 0.3);
-    background-color: var(--gold-light);
+    background-color: var(--gold-main);
+    color: var(--bg-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(223, 186, 107, 0.2);
 }
 
-/* 5. Адаптивность для мобильных устройств */
+/* 5. Адаптивность под мобильные телефоны */
 @media (max-width: 768px) {
     .header {
         padding: 20px 5%;
     }
-    .nav a:not(.btn-nav) {
-        display: none; /* Скрываем простые ссылки меню на мобилках */
+    .header a:not(.btn-nav) {
+        display: none; /* Прячем левое меню на телефонах */
     }
-    .hero {
-        padding: 0 5%;
+    .main-hero-sign {
+        height: 100px; /* Чуть уменьшаем на мобильных, чтобы вошло в экран */
     }
-    .hero-title {
-        font-size: 32px;
+    .main-hero-text {
+        height: 45px;
+    }
+    .hero-subtitle {
+        letter-spacing: 4px;
+        font-size: 11px;
     }
     .hero-description {
         font-size: 14px;
