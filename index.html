@@ -4,43 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A. Ikti Design | Айдентика & Frontend-разработка</title>
-    <!-- Подключаем шрифты Montserrat для текста и курсив для логотипа -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Шапка сайта -->
+    <!-- Шапка сайта (минималистичная, только меню по бокам) -->
     <header class="header">
-        <div class="logo-block">
-             <!-- Ваша круглая картинка-знак -->
-            <img src="logo-sign.png" alt="A. Ikti" class="logo-img-sign">
-            <!-- Ваша картинка-надпись -->
-            <img src="logo-text.png" alt="Design by A. Ikti" class="logo-img-text">
-        </div>
-        <nav class="nav">
+        <nav class="nav-left">
             <a href="#services">Услуги</a>
             <a href="#portfolio">Портфолио</a>
+        </nav>
+        <nav class="nav-right">
             <a href="#contacts" class="btn-nav">Связаться</a>
         </nav>
     </header>
 
-    <!-- Главный экран -->
+    <!-- Главный экран в стиле премиальных обоев / обложки -->
     <main class="hero">
-        <div class="hero-container">
-            <p class="hero-subtitle">Разработка айдентики и веб-интерфейсов</p>
-            <h1 class="hero-title">
-                Создаю премиальный дизайн.<br>
-                <span class="gold-text">Пишу безупречный код.</span>
-            </h1>
+        <div class="hero-center-content">
+            
+            <!-- Блок с вашим главным визуалом (крупно) -->
+            <div class="main-branding-group">
+                <img src="logo-sign.png" alt="Логотип A. Ikti" class="main-hero-sign">
+                <img src="logo-text.png" alt="Design by A. Ikti" class="main-hero-text">
+            </div>
+
+            <!-- Поясняющий текст под логотипом -->
+            <p class="hero-subtitle">Разработка айдентики & Frontend-разработка</p>
+            
             <p class="hero-description">
-                Эксклюзивные логотипы, фирменный стиль и адаптивные сайты-визитки на чистом HTML, CSS и JavaScript. Без шаблонов, конструкторов и переплат за платформы.
+                Эксклюзивные логотипы, фирменный стиль и адаптивные сайты-визитки на чистом коде. Без шаблонов, конструкторов и лишних переплат.
             </p>
+            
             <div class="hero-actions">
                 <a href="#contacts" class="btn-primary">Обсудить проект</a>
             </div>
+            
         </div>
     </main>
 
