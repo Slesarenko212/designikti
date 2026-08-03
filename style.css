@@ -1,0 +1,207 @@
+/* 1. Дизайн-система и переменные */
+:root {
+    --bg-dark: #111111;
+    --bg-card: #161616;
+    --gold-main: #dfba6b;
+    --gold-light: #f3dc9d;
+    --text-white: #ffffff;
+    --text-muted: #a0a0a0;
+    --font-main: 'Montserrat', sans-serif;
+    --font-cursive: 'Playfair Display', serif; /* Элегантный акцентный шрифт */
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 2. Базовые сбросы */
+* {
+    margin: 0;
+    padding: 0;
+    box-box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 3. Шапка сайта (Header) */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 10%;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.logo-block {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.logo-circle {
+    width: 45px;
+    height: 45px;
+    border: 1px solid var(--gold-main);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-cursive);
+    font-size: 24px;
+    color: var(--gold-main);
+    font-style: italic;
+    transition: var(--transition);
+    box-shadow: 0 0 0px rgba(223, 186, 107, 0);
+}
+
+.logo-text {
+    font-family: var(--font-cursive);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--gold-light);
+    letter-spacing: 1px;
+}
+
+.logo-text span {
+    font-family: var(--font-main);
+    font-size: 11px;
+    font-style: normal;
+    text-transform: uppercase;
+    display: block;
+    color: var(--text-muted);
+    letter-spacing: 3px;
+    margin-top: -2px;
+}
+
+/* Ховер-эффект для логотипа в вашем стиле */
+.logo-block:hover .logo-circle {
+    transform: rotate(360deg);
+    color: var(--bg-dark);
+    background-color: var(--gold-main);
+    box-shadow: 0 0 15px rgba(223, 186, 107, 0.4);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.nav a:hover {
+    color: var(--gold-light);
+}
+
+.nav .btn-nav {
+    border: 1px solid var(--gold-main);
+    padding: 8px 20px;
+    border-radius: 4px;
+    color: var(--gold-main);
+}
+
+.nav .btn-nav:hover {
+    background-color: var(--gold-main);
+    color: var(--bg-dark);
+}
+
+/* 4. Главный экран (Hero Section) */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    position: relative;
+    background: radial-gradient(circle at 80% 20%, #1e1b15 0%, var(--bg-dark) 50%);
+}
+
+.hero-container {
+    max-width: 750px;
+    margin-top: 60px;
+}
+
+.hero-subtitle {
+    color: var(--gold-main);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    margin-bottom: 25px;
+}
+
+.gold-text {
+    color: var(--gold-main);
+    background: linear-gradient(45deg, var(--gold-main), var(--gold-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--gold-main);
+    color: var(--bg-dark);
+    text-decoration: none;
+    padding: 16px 35px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(223, 186, 107, 0.15);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(223, 186, 107, 0.3);
+    background-color: var(--gold-light);
+}
+
+/* 5. Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .header {
+        padding: 20px 5%;
+    }
+    .nav a:not(.btn-nav) {
+        display: none; /* Скрываем простые ссылки меню на мобилках */
+    }
+    .hero {
+        padding: 0 5%;
+    }
+    .hero-title {
+        font-size: 32px;
+    }
+    .hero-description {
+        font-size: 14px;
+    }
+}
