@@ -40,6 +40,7 @@ body {
 .logo-block {
     display: flex;
     align-items: center;
+    perspective: 1000px; /* Задает глубину 3D пространства */
 }
 
 /* Настройки круглого знака в шапке */
@@ -49,11 +50,12 @@ body {
     object-fit: contain;
     filter: drop-shadow(0 0 15px rgba(223, 186, 107, 0.1));
     transition: var(--transition);
+    transform-style: preserve-3d; /* Позволяет элементу вращаться в 3D */
 }
 
-/* Ховер-эффект: полный переворот на 360 градусов без наклона */
+/* Ховер-эффект: один полный кувырок вокруг горизонтальной оси (X) */
 .logo-block:hover .header-sign {
-    transform: rotate(360deg); /* Ровно один полный оборот */
+    transform: rotateX(360deg); /* Вращение сверху вниз на 360 градусов */
     filter: drop-shadow(0 0 25px rgba(223, 186, 107, 0.45));
 }
 
