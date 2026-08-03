@@ -13,12 +13,14 @@
 
     <!-- Шапка сайта -->
     <header class="header">
-        <nav class="nav-left">
+        <!-- Логотип-знак вернулся в левый верхний угол -->
+        <div class="logo-block">
+            <img src="logo-sign.png" alt="Логотип A. Ikti" class="header-sign">
+        </div>
+        <!-- Кнопки Услуги и Портфолио перенесены вправо -->
+        <nav class="nav-right">
             <a href="#services">Услуги</a>
             <a href="#portfolio">Портфолио</a>
-        </nav>
-        <nav class="nav-right">
-            <a href="#contacts" class="btn-nav">Связаться</a>
         </nav>
     </header>
 
@@ -28,7 +30,6 @@
             
             <p class="hero-subtitle">Разработка айдентики & Frontend</p>
             
-            <!-- Вернули текстовые заголовки -->
             <h1 class="hero-title">
                 Создаю премиальный дизайн.<br>
                 <span class="gold-text">Пишу безупречный код.</span>
@@ -39,21 +40,17 @@
             </p>
             
             <div class="hero-actions">
-                <a href="#contacts" class="btn-primary">Обсудить проект</a>
+                <!-- Кнопка теперь в легком контурном стиле -->
+                <a href="#contacts" class="btn-outline">Обсудить проект</a>
             </div>
             
         </div>
     </main>
 
-    <!-- Крупный брендовый подвал (Footer) -->
+    <!-- Минималистичный подвал (Footer) -->
     <footer class="footer-branding">
-        <div class="footer-logo-container">
-            <!-- Крупный круглый знак А -->
-            <img src="logo-sign.png" alt="Логотип A. Ikti" class="footer-sign">
-            <!-- Огромная читаемая надпись -->
-            <img src="logo-text.png" alt="Design by A. Ikti" class="footer-text">
-        </div>
-        <p class="footer-copy">© 2026 A. Ikti Design. Handcrafted with clean code.</p>
+        <!-- Огромная читаемая надпись теперь в самом низу вместо копирайта -->
+        <img src="logo-text.png" alt="Design by A. Ikti" class="footer-text">
     </footer>
 
 </body>
