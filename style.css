@@ -404,66 +404,86 @@ body {
     }
 }
 
-/* --- БЛОК КОНТАКТОВ --- */
+/* --- БЛОК КОНТАКТОВ С КНОПКАМИ --- */
 .contacts-section {
-    padding: 100px 8%;
+    padding: 120px 8%;
     background-color: var(--bg-dark);
     text-align: center;
 }
 
-.contacts-container {
-    max-width: 600px;
-    margin: 0 auto;
+.contacts-description {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 550px;
+    margin: -30px auto 50px auto; /* Красивый отступ под заголовком */
+    font-weight: 300;
 }
 
-.contact-form {
+.contacts-buttons-group {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    justify-content: center;
+    gap: 25px; /* Расстояние между кнопками */
 }
 
-.form-input {
-    width: 100%;
-    padding: 18px 25px;
-    background-color: #0d0d0d;
-    border: 1px solid #1a1a1a;
-    border-radius: 4px;
-    color: var(--text-white);
-    font-family: var(--font-main);
-    font-size: 15px;
-    transition: var(--transition);
-    outline: none;
-}
-
-.form-input:focus {
-    border-color: var(--gold-main);
-    box-shadow: 0 0 15px rgba(223, 186, 107, 0.1);
-    background-color: #121212;
-}
-
-.form-textarea {
-    resize: none;
-}
-
-.btn-submit {
-    background-color: var(--gold-main);
-    color: var(--bg-dark);
-    border: none;
-    padding: 18px;
+/* Базовый стиль кнопок-контактов */
+.contact-link-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 18px 45px;
     font-size: 14px;
     font-weight: 600;
     border-radius: 4px;
-    text-transform: uppercase;
     letter-spacing: 2px;
-    cursor: pointer;
+    text-transform: uppercase;
     transition: var(--transition);
-    box-shadow: 0 4px 15px rgba(223, 186, 107, 0.2);
+    min-width: 260px;
 }
 
-.btn-submit:hover {
-    background-color: var(--gold-light);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(223, 186, 107, 0.35);
+/* Специфические цвета кнопок в премиальной стилистике */
+.max-btn {
+    border: 1px solid var(--gold-main);
+    color: var(--gold-main);
+    background-color: transparent;
+}
+
+.max-btn:hover {
+    background-color: var(--gold-main);
+    color: var(--bg-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(223, 186, 107, 0.25);
+}
+
+.vk-btn {
+    border: 1px solid #2b5278; /* Сдержанный темно-синий оттенок ВК */
+    color: #83a4c5;
+    background-color: transparent;
+}
+
+.vk-btn:hover {
+    border-color: #4c75a3;
+    background-color: #4c75a3;
+    color: var(--text-white);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(76, 117, 163, 0.25);
+}
+
+/* Адаптивность для мобильных телефонов */
+@media (max-width: 768px) {
+    .contacts-buttons-group {
+        flex-direction: column; /* На смартфонах кнопки встают друг под друга */
+        align-items: center;
+    }
+    .contact-link-btn {
+        width: 100%;
+        max-width: 320px;
+    }
+    .contacts-description {
+        font-size: 14px;
+        margin-bottom: 40px;
+    }
 }
 
 /* --- СТИЛИ ДЛЯ ЗОЛОТЫХ ИСКР (SPARKLES) --- */
