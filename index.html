@@ -140,24 +140,23 @@
         </div>
     </section>
 
-    <!-- БЛОК КОНТАКТОВ -->
+    <!-- БЛОК КОНТАКТОВ В ВИДЕ ПРЯМЫХ ССЫЛОК -->
     <section class="contacts-section" id="contacts">
         <p class="section-subtitle">Связаться со мной</p>
         <h2 class="section-title">Начнем ваш проект</h2>
+        <p class="contacts-description">
+            Напишите мне в удобный для вас мессенджер. Я подробно проконсультирую вас по вашему проекту и помогу подобрать идеальное решение.
+        </p>
         
-        <div class="contacts-container">
-            <form class="contact-form" onsubmit="event.preventDefault(); alert('Спасибо за заявку! Скоро я свяжусь с вами.');">
-                <div class="form-group">
-                    <input type="text" placeholder="Ваше имя" required class="form-input">
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Email или Telegram" required class="form-input">
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Расскажите немного о вашем бизнесе и задачах..." rows="5" class="form-input form-textarea"></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Отправить заявку</button>
-            </form>
+        <div class="contacts-buttons-group">
+            <!-- Ссылка на МАХ -->
+            <a href="https://max.ru" target="_blank" class="contact-link-btn max-btn">
+                <span>Написать в МАХ</span>
+            </a>
+            <!-- Ссылка на ВК -->
+            <a href="https://vk.com" target="_blank" class="contact-link-btn vk-btn">
+                <span>Открыть ВКонтакте</span>
+            </a>
         </div>
     </section>
 
