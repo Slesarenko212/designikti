@@ -520,7 +520,7 @@ body {
 
 /* Стили для реальной картинки внутри портфолио */
 .portfolio-img {
-    width: 500px;
+    width: 450px;
     height: 100%;
     object-fit: cover; /* Картинка заполнит всю карточку без искажений */
     transition: var(--transition);
