@@ -139,6 +139,30 @@
             </div>
         </div>
     </section>
+
+    <!-- БЛОК КОНТАКТОВ -->
+    <section class="contacts-section" id="contacts">
+        <p class="section-subtitle">Связаться со мной</p>
+        <h2 class="section-title">Начнем ваш проект</h2>
+        
+        <div class="contacts-container">
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Спасибо за заявку! Скоро я свяжусь с вами.');">
+                <div class="form-group">
+                    <input type="text" placeholder="Ваше имя" required class="form-input">
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email или Telegram" required class="form-input">
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Расскажите немного о вашем бизнесе и задачах..." rows="5" class="form-input form-textarea"></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Отправить заявку</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ПОДКЛЮЧЕНИЕ СКРИПТА ДЛЯ ЗОЛОТЫХ ИСКР -->
+    <script src="script.js"></script>
     
     <!-- Минималистичный подвал (Footer) -->
     <footer class="footer-branding">
