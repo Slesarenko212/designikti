@@ -8,6 +8,7 @@
     --gold-light: #f3dc9d;
     --text-white: #ffffff;
     --text-muted: #8e8e93;
+    --bg-footer: #0b0b0b;
     --font-main: 'Montserrat', sans-serif;
     --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -15,10 +16,11 @@
 /* Новая премиальная светлая тема (Тёмный шёлк / Графит) */
 [data-theme="light"] {
     --bg-dark: #222222;       /* Мягкий графитовый фон вместо белого */
+    --bg-footer: #222222;
     --bg-header: rgba(34, 34, 34, 0.85); /* Стеклянная шапка в тон фона */
     --bg-card: #2e2e2e;       /* Карточки СВЕТЛЕЕ фона — они мягко выделяются и больше не черные */
     --border-color: #3a3a3a;   /* Деликатные графитовые линии границ */
-    --gold-main: #dfba6b;     /* Возвращаем ваше родное сияющее золото */
+    --gold-main: #F6DA68;     /* Возвращаем ваше родное сияющее золото */
     --gold-light: #f3dc9d;    /* Светло-золотые блики */
     --text-white: #ffffff;    /* Текст остаётся контрастным и белым */
     --text-muted: #b0b0b0;    /* Светло-серый аккуратный текст для описаний */
@@ -193,7 +195,7 @@ html {
 
 /* 5. Подвал (Footer) только с крупной надписью */
 .footer-branding {
-    background-color: #0b0b0b;
+    background-color: var(--bg-footer);
     border-top: 1px solid #141414;
     padding: 90px 20px;
     display: flex;
@@ -221,7 +223,12 @@ html {
     .header {
         padding: 15px 5%;
     }
-        
+
+    /* Скрываем ТОЛЬКО текстовые ссылки меню на телефонах */
+    .nav-right a {
+        display: none; 
+    }
+    
     /* Принудительно показываем кнопку смены темы на мобильных */
     .theme-btn {
         display: inline-flex !important;
@@ -282,8 +289,8 @@ html {
 
 /* Базовая карточка услуги */
 .service-card {
-    background-color: #0d0d0d;
-    border: 1px solid #161616;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
     padding: 50px 30px;
     border-radius: 8px;
     position: relative;
