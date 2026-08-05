@@ -16,6 +16,18 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth; /* Включает плавный скролл по кодовым ссылкам на чистом CSS */
+}
+
+/* Ссылка-логотип не должна иметь стандартных подчеркиваний */
+.logo-block {
+    display: flex;
+    align-items: center;
+    perspective: 1000px;
+    text-decoration: none; 
+}
+
 body {
     background-color: var(--bg-dark);
     color: var(--text-white);
