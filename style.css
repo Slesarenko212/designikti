@@ -1,12 +1,27 @@
-/* 1. Дизайн-система */
+/* 1. Новая динамическая дизайн-система */
 :root {
     --bg-dark: #0a0a0a;
+    --bg-header: rgba(10, 10, 10, 0.75);
+    --bg-card: #0d0d0d;
+    --border-color: #161616;
     --gold-main: #F6DA68;
     --gold-light: #f3dc9d;
     --text-white: #ffffff;
     --text-muted: #8e8e93;
     --font-main: 'Montserrat', sans-serif;
     --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Переменные для светлой темы */
+[data-theme="light"] {
+    --bg-dark: #fcfbf7; /* Мягкий молочный премиум-фон */
+    --bg-header: rgba(252, 251, 247, 0.8);
+    --bg-card: #ffffff;
+    --border-color: #e6e3da;
+    --gold-main: #b89345; /* Чуть темнее для читаемости на белом */
+    --gold-light: #94722b;
+    --text-white: #1c1a17; /* Черный текст */
+    --text-muted: #6e6d6a;
 }
 
 /* 2. Сбросы */
@@ -541,4 +556,85 @@ body {
 /* Эффект приближения для реальной картинки */
 .portfolio-item:hover .portfolio-img {
     transform: scale(1.05);
+}
+
+/* Стили для Стеклянной Шапки */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%; /* Сделали чуть уже, так как она теперь закреплена */
+    position: fixed;   /* Фиксируем вверху экрана */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: var(--bg-header);
+    backdrop-filter: blur(12px); /* Эффект матового стекла */
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+/* Кнопка смены темы */
+.theme-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+.theme-btn:hover {
+    border-color: var(--gold-main);
+    transform: scale(1.1);
+}
+.theme-icon {
+    font-size: 14px;
+}
+
+/* Стили для Кастомного Курсора */
+.custom-cursor {
+    width: 8px;
+    height: 8px;
+    background-color: var(--gold-main);
+    border-radius: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10000;
+    mix-blend-mode: difference; /* Эффект инверсии цвета под курсором */
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+    box-shadow: 0 0 10px var(--gold-main);
+}
+
+/* Класс-активатор для курсора при наведении на ссылки */
+.custom-cursor.hovered {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid var(--gold-main);
+    box-shadow: 0 0 20px rgba(223, 186, 107, 0.3);
+}
+
+/* Элементы, которые будут плавно появляться при скролле */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Скрываем кастомный курсор на тачскринах, там он не нужен */
+@media (pointer: coarse) {
+    .custom-cursor {
+        display: none;
+    }
 }
