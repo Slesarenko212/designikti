@@ -27,11 +27,25 @@
     background: radial-gradient(circle at 50% 45%, #3a3222 0%, var(--bg-dark) 65%);
 }
 
-/* 2. Сбросы */
+/* 2. Базовые сбросы */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    cursor: none; /* ПОЛНОСТЬЮ СКРЫВАЕТ СТАНДАРТНЫЙ КУРСОР МЫШИ НА САЙТЕ */
+}
+
+/* Принудительно скрываем стандартный курсор на всех кнопках и ссылках */
+a, button, input, textarea, .service-card, .portfolio-item, .logo-block {
+    cursor: none !important;
 }
 
 html {
@@ -44,14 +58,6 @@ html {
     align-items: center;
     perspective: 1000px;
     text-decoration: none; 
-}
-
-body {
-    background-color: var(--bg-dark);
-    color: var(--text-white);
-    font-family: var(--font-main);
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
 }
 
 /* 3. Шапка сайта (Лого слева, меню справа) */
@@ -213,19 +219,32 @@ body {
 /* 6. Адаптивность */
 @media (max-width: 768px) {
     .header {
-        padding: 20px 5%;
+        padding: 15px 5%;
     }
+        
+    /* Принудительно показываем кнопку смены темы на мобильных */
+    .theme-btn {
+        display: inline-flex !important;
+        border-color: var(--border-color);
+        padding: 6px; /* На смартфонах делаем кнопку чуть компактнее */
+    }
+
+    .header-sign {
+        height: 60px; /* Уменьшаем логотип, чтобы он не перекрывал экран */
+    }
+
     .hero-title {
-        font-size: 34px;
+        font-size: 32px;
     }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
     .footer-branding {
         padding: 60px 20px;
     }
-    .header-sign {
-        height: 60px; /* На смартфонах делаем чуть аккуратнее, чтобы не перекрывать текст */
-    }
 }
-
 /* ==========================================================================
    6. Стили для блоков Услуг и Портфолио
    ========================================================================== */
@@ -566,7 +585,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 8%; /* Сделали чуть уже, так как она теперь закреплена */
+    padding: 8px 8%; /* Сделали чуть уже, так как она теперь закреплена */
     position: fixed;   /* Фиксируем вверху экрана */
     width: 100%;
     top: 0;
