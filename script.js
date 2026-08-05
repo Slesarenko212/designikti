@@ -87,7 +87,7 @@ themeToggle.addEventListener('click', () => {
 // ==========================================
 const revealElements = document.querySelectorAll('.scroll-reveal');
 
-const revealOnScroll = new Intersection Observer((entries, observer) => {
+const revealOnScroll = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
