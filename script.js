@@ -46,3 +46,59 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+// ==========================================
+// 1. ЛОГИКА КАСТОМНОГО КУРСОРA
+// ==========================================
+const cursor = document.querySelector('.custom-cursor');
+
+document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+});
+
+// Увеличиваем курсор при наведении на интерактивные элементы
+document.querySelectorAll('a, button, .service-card, .portfolio-item').forEach(link => {
+    link.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+    link.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+});
+
+
+// ==========================================
+// 2. ПЕРЕКЛЮЧАТЕЛЬ СВЕТЛОЙ / ТЕМНОЙ ТЕМЫ
+// ==========================================
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = themeToggle.querySelector('.theme-icon');
+
+themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    
+    if (currentTheme === 'light') {
+        document.documentElement.removeAttribute('data-theme');
+        themeIcon.textContent = '🌙';
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        themeIcon.textContent = '☀️';
+    }
+});
+
+
+// ==========================================
+// 3. АНИМАЦИЯ ПОЯВЛЕНИЯ ЭЛЕМЕНТОВ ПРИ СКРОЛЛЕ
+// ==========================================
+const revealElements = document.querySelectorAll('.scroll-reveal');
+
+const revealOnScroll = new Intersection Observer((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            // Перестаем следить за элементом, чтобы анимация сработала только 1 раз
+            observer.unobserve(entry.target); 
+        }
+    });
+}, {
+    threshold: 0.15 // Элемент начнет проявляться, когда покажется на 15% своего размера
+});
+
+revealElements.forEach(element => {
+    revealOnScroll.observe(element);
+});
