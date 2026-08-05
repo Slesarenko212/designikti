@@ -11,19 +11,25 @@
 </head>
 <body id="top">
 
-    <!-- Шапка сайта -->
+    <!-- Кастомный интерактивный курсор -->
+    <div class="custom-cursor"></div>
+
+    <!-- Закрепленная стеклянная шапка сайта -->
     <header class="header">
-        <!-- Логотип-знак вернулся в левый верхний угол -->
         <a href="#top" class="logo-block">
             <img src="logo-sign.png" alt="Логотип A. Ikti" class="header-sign">
         </a>
-        <!-- Кнопки Услуги и Портфолио перенесены вправо -->
         <nav class="nav-right">
             <a href="#services">Услуги</a>
             <a href="#portfolio">Портфолио</a>
+            <a href="#contacts">Контакты</a>
+            <!-- Кнопка смены темы -->
+            <button id="theme-toggle" class="theme-btn" aria-label="Переключить тему">
+                <span class="theme-icon">🌙</span>
+            </button>
         </nav>
     </header>
-
+    
     <!-- Главный экран -->
     <main class="hero">
         <div class="hero-center-content">
