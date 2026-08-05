@@ -11,19 +11,24 @@
 </head>
 <body id="top">
 
-    <!-- Шапка сайта -->
+    <!-- Кастомный интерактивный курсор -->
+    <div class="custom-cursor"></div>
+
+    <!-- Закрепленная стеклянная шапка сайта -->
     <header class="header">
-        <!-- Логотип-знак вернулся в левый верхний угол -->
         <a href="#top" class="logo-block">
             <img src="logo-sign.png" alt="Логотип A. Ikti" class="header-sign">
         </a>
-        <!-- Кнопки Услуги и Портфолио перенесены вправо -->
         <nav class="nav-right">
             <a href="#services">Услуги</a>
             <a href="#portfolio">Портфолио</a>
+            <!-- Кнопка смены темы -->
+            <button id="theme-toggle" class="theme-btn" aria-label="Переключить тему">
+                <span class="theme-icon">🌙</span>
+            </button>
         </nav>
     </header>
-
+    
     <!-- Главный экран -->
     <main class="hero">
         <div class="hero-center-content">
@@ -48,7 +53,7 @@
     </main>
 
     <!-- БЛОК УСЛУГ И ЦЕН -->
-    <section class="services-section" id="services">
+    <section class="services-section scroll-reveal" id="services">
         <p class="section-subtitle">Прайс-лист</p>
         <h2 class="section-title">Услуги и пакетные решения</h2>
         
@@ -99,7 +104,7 @@
     </section>
 
     <!-- БЛОК ПОРТФОЛИО -->
-    <section class="portfolio-section" id="portfolio">
+    <section class="portfolio-section scroll-reveal" id="portfolio">
         <p class="section-subtitle">Мои работы</p>
         <h2 class="section-title">Избранные кейсы</h2>
         
@@ -113,7 +118,7 @@
                     </div>
                     <div class="portfolio-info">
                         <p class="portfolio-category">Дизайн + Верстка под ключ</p>
-                        <h3 class="portfolio-item-title">FETROMA — Сайт-визитка для мастерской ручной работы</h3>
+                        <h3 class="portfolio-item-title">FETROMA — Мастерская изделий ручной работы</h3>
                     </div>
                 </div>
             </a>
@@ -125,7 +130,7 @@
                 </div>
                 <div class="portfolio-info">
                     <p class="portfolio-category">Логотип + Визитка</p>
-                    <h3 class="portfolio-item-title">Stark Wood — Строительное бюро</h3>
+                    <h3 class="portfolio-item-title">Star Wood — Строительная компания</h3>
                 </div>
             </div>
 
@@ -143,7 +148,7 @@
     </section>
 
     <!-- БЛОК КОНТАКТОВ В ВИДЕ ПРЯМЫХ ССЫЛОК -->
-    <section class="contacts-section" id="contacts">
+    <section class="contacts-section scroll-reveal" id="contacts">
         <p class="section-subtitle">Связаться со мной</p>
         <h2 class="section-title">Начнем ваш проект</h2>
         <p class="contacts-description">

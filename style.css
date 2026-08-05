@@ -1,19 +1,53 @@
-/* 1. Дизайн-система */
+/* 1. Новая динамическая дизайн-система */
 :root {
     --bg-dark: #0a0a0a;
+    --bg-header: rgba(10, 10, 10, 0.75);
+    --bg-card: #0d0d0d;
+    --border-color: #161616;
     --gold-main: #F6DA68;
     --gold-light: #f3dc9d;
     --text-white: #ffffff;
     --text-muted: #8e8e93;
+    --bg-footer: #0b0b0b;
     --font-main: 'Montserrat', sans-serif;
     --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* 2. Сбросы */
+/* Новая премиальная светлая тема (Тёмный шёлк / Графит) */
+[data-theme="light"] {
+    --bg-dark: #222222;       /* Мягкий графитовый фон вместо белого */
+    --bg-footer: #222222;
+    --bg-header: rgba(34, 34, 34, 0.85); /* Стеклянная шапка в тон фона */
+    --bg-card: #2e2e2e;       /* Карточки СВЕТЛЕЕ фона — они мягко выделяются и больше не черные */
+    --border-color: #3a3a3a;   /* Деликатные графитовые линии границ */
+    --gold-main: #F6DA68;     /* Возвращаем ваше родное сияющее золото */
+    --gold-light: #f3dc9d;    /* Светло-золотые блики */
+    --text-white: #ffffff;    /* Текст остаётся контрастным и белым */
+    --text-muted: #b0b0b0;    /* Светло-серый аккуратный текст для описаний */
+}
+[data-theme="light"] .hero {
+    background: radial-gradient(circle at 50% 45%, #3a3222 0%, var(--bg-dark) 65%);
+}
+
+/* 2. Базовые сбросы */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    cursor: none; /* ПОЛНОСТЬЮ СКРЫВАЕТ СТАНДАРТНЫЙ КУРСОР МЫШИ НА САЙТЕ */
+}
+
+/* Принудительно скрываем стандартный курсор на всех кнопках и ссылках */
+a, button, input, textarea, .service-card, .portfolio-item, .logo-block {
+    cursor: none !important;
 }
 
 html {
@@ -26,14 +60,6 @@ html {
     align-items: center;
     perspective: 1000px;
     text-decoration: none; 
-}
-
-body {
-    background-color: var(--bg-dark);
-    color: var(--text-white);
-    font-family: var(--font-main);
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
 }
 
 /* 3. Шапка сайта (Лого слева, меню справа) */
@@ -169,7 +195,7 @@ body {
 
 /* 5. Подвал (Footer) только с крупной надписью */
 .footer-branding {
-    background-color: #0b0b0b;
+    background-color: var(--bg-footer);
     border-top: 1px solid #141414;
     padding: 90px 20px;
     display: flex;
@@ -195,19 +221,37 @@ body {
 /* 6. Адаптивность */
 @media (max-width: 768px) {
     .header {
-        padding: 20px 5%;
+        padding: 15px 5%;
     }
+
+    /* Скрываем ТОЛЬКО текстовые ссылки меню на телефонах */
+    .nav-right a {
+        display: none; 
+    }
+    
+    /* Принудительно показываем кнопку смены темы на мобильных */
+    .theme-btn {
+        display: inline-flex !important;
+        border-color: var(--border-color);
+        padding: 6px; /* На смартфонах делаем кнопку чуть компактнее */
+    }
+
+    .header-sign {
+        height: 65px; /* Уменьшаем логотип, чтобы он не перекрывал экран */
+    }
+
     .hero-title {
-        font-size: 34px;
+        font-size: 32px;
     }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
     .footer-branding {
         padding: 60px 20px;
     }
-    .header-sign {
-        height: 60px; /* На смартфонах делаем чуть аккуратнее, чтобы не перекрывать текст */
-    }
 }
-
 /* ==========================================================================
    6. Стили для блоков Услуг и Портфолио
    ========================================================================== */
@@ -245,8 +289,8 @@ body {
 
 /* Базовая карточка услуги */
 .service-card {
-    background-color: #0d0d0d;
-    border: 1px solid #161616;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
     padding: 50px 30px;
     border-radius: 8px;
     position: relative;
@@ -284,7 +328,7 @@ body {
 
 /* Стили для Главного Пакетного предложения (Центральная карточка) */
 .service-card.VIP-card {
-    background: linear-gradient(180deg, #12100c 0%, #0d0d0d 100%);
+    background: linear-gradient(180deg, #12100c 0%, var(--bg-card) 100%);
     border: 1px solid rgba(223, 186, 107, 0.4);
     padding: 65px 35px; /* Делаем ее визуально крупнее остальных */
     box-shadow: 0 10px 30px rgba(223, 186, 107, 0.05);
@@ -532,7 +576,7 @@ body {
 
 /* Стили для реальной картинки внутри портфолио */
 .portfolio-img {
-    width: 300px;
+    width: 100%;
     height: 100%;
     object-fit: cover; /* Картинка заполнит всю карточку без искажений */
     transition: var(--transition);
@@ -541,4 +585,85 @@ body {
 /* Эффект приближения для реальной картинки */
 .portfolio-item:hover .portfolio-img {
     transform: scale(1.05);
+}
+
+/* Стили для Стеклянной Шапки */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 8%; /* Сделали чуть уже, так как она теперь закреплена */
+    position: fixed;   /* Фиксируем вверху экрана */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: var(--bg-header);
+    backdrop-filter: blur(12px); /* Эффект матового стекла */
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+/* Кнопка смены темы */
+.theme-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+.theme-btn:hover {
+    border-color: var(--gold-main);
+    transform: scale(1.1);
+}
+.theme-icon {
+    font-size: 14px;
+}
+
+/* Стили для Кастомного Курсора */
+.custom-cursor {
+    width: 8px;
+    height: 8px;
+    background-color: var(--gold-main);
+    border-radius: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10000;
+    mix-blend-mode: difference; /* Эффект инверсии цвета под курсором */
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+    box-shadow: 0 0 10px var(--gold-main);
+}
+
+/* Класс-активатор для курсора при наведении на ссылки */
+.custom-cursor.hovered {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid var(--gold-main);
+    box-shadow: 0 0 20px rgba(223, 186, 107, 0.3);
+}
+
+/* Элементы, которые будут плавно появляться при скролле */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Скрываем кастомный курсор на тачскринах, там он не нужен */
+@media (pointer: coarse) {
+    .custom-cursor {
+        display: none;
+    }
 }
