@@ -237,7 +237,7 @@ html {
     }
 
     .header-sign {
-        height: 60px; /* Уменьшаем логотип, чтобы он не перекрывал экран */
+        height: 65px; /* Уменьшаем логотип, чтобы он не перекрывал экран */
     }
 
     .hero-title {
@@ -328,7 +328,7 @@ html {
 
 /* Стили для Главного Пакетного предложения (Центральная карточка) */
 .service-card.VIP-card {
-    background: linear-gradient(180deg, #12100c 0%, #0d0d0d 100%);
+    background: linear-gradient(180deg, #12100c 0%, var(--bg-card) 100%);
     border: 1px solid rgba(223, 186, 107, 0.4);
     padding: 65px 35px; /* Делаем ее визуально крупнее остальных */
     box-shadow: 0 10px 30px rgba(223, 186, 107, 0.05);
