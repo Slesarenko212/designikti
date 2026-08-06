@@ -667,3 +667,19 @@ html {
         display: none;
     }
 }
+
+
+/* АКЦИЯ */
+.old-price {
+    display: block;
+    font-size: 14px;
+    color: var(--text-muted);
+    text-decoration: line-through;
+    font-weight: 400;
+    margin-bottom: 5px;
+    letter-spacing: 0;
+}
+.service-card.VIP-card .old-price {
+    color: #a09785; /* Более мягкий цвет для темной VIP-карточки */
+}
+/* АКЦИЯ */
