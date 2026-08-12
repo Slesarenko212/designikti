@@ -683,3 +683,104 @@ html {
     color: #a09785; /* Более мягкий цвет для темной VIP-карточки */
 }
 /* АКЦИЯ */
+
+
+
+
+
+/* Красивый разделитель между рядами карточек */
+.row-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 80px 0 50px 0;
+    width: 100%;
+}
+
+.separator-line {
+    flex-grow: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+}
+
+.separator-title {
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--gold-main);
+    white-space: nowrap;
+}
+
+/* Стили для карточек второго ряда (тарифов сайтов) */
+.service-card.sub-card {
+    background-color: #0b0b0b; /* Чуть темнее верхних, чтобы разделить логику */
+    padding: 40px 25px;
+    border-radius: 6px;
+}
+
+.sub-card-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--text-white);
+}
+
+/* Центральная карточка второго ряда (соответствует главному пакету) */
+.service-card.VIP-sub-card {
+    border: 1px solid rgba(223, 186, 107, 0.25);
+    background: linear-gradient(180deg, #100e0a 0%, #0b0b0b 100%);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.service-card.VIP-sub-card:hover {
+    border-color: var(--gold-main);
+    box-shadow: 0 10px 30px rgba(223, 186, 107, 0.1);
+}
+
+.VIP-sub-card .sub-card-title {
+    color: var(--gold-light);
+}
+
+/* Компактный ярлык для центрального тарифа сайта */
+.sub-badge {
+    background-color: rgba(223, 186, 107, 0.1);
+    border: 1px solid var(--gold-main);
+    color: var(--gold-main);
+    font-size: 9px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* Адаптивность для второго ряда */
+@media (max-width: 992px) {
+    .first-row, .second-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .service-card.VIP-sub-card {
+        grid-column: span 2;
+        order: -1; /* Выносим оптимальный тариф наверх на планшетах */
+    }
+}
+
+@media (max-width: 768px) {
+    .first-row, .second-row {
+        grid-template-columns: 1fr;
+    }
+    .service-card.VIP-sub-card {
+        grid-column: span 1;
+    }
+    .row-separator {
+        margin: 50px 0 30px 0;
+    }
+    .separator-title {
+        font-size: 14px;
+        letter-spacing: 1.5px;
+    }
+}
