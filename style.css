@@ -694,7 +694,7 @@ html {
 
 /* Стили для карточек второго ряда (тарифов сайтов) */
 .service-card.sub-card {
-    background-color: #0b0b0b; /* Чуть темнее верхних, чтобы разделить логику */
+    background-color: var(--bg-card); /* Чуть темнее верхних, чтобы разделить логику */
     padding: 40px 25px;
     border-radius: 6px;
 }
@@ -707,17 +707,6 @@ html {
 }
 
 /* Центральная карточка второго ряда (соответствует главному пакету) */
-.service-card.VIP-sub-card {
-    border: 1px solid rgba(223, 186, 107, 0.25);
-    background: linear-gradient(180deg, #100e0a 0%, #0b0b0b 100%);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-}
-
-.service-card.VIP-sub-card:hover {
-    border-color: var(--gold-main);
-    box-shadow: 0 10px 30px rgba(223, 186, 107, 0.1);
-}
-
 .VIP-sub-card .sub-card-title {
     color: var(--gold-light);
 }
