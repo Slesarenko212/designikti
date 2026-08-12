@@ -784,3 +784,28 @@ html {
         letter-spacing: 1.5px;
     }
 }
+
+
+/* Смещаем карточки второго ряда для создания каскадного эффекта */
+@media (min-width: 993px) {
+    /* Левую и правую карточки второго ряда приподнимаем вверх на 15 пикселей */
+    .second-row .service-card:first-child,
+    .second-row .service-card:last-child {
+        transform: translateY(-15px);
+    }
+
+    /* Центральную карточку второго ряда слегка опускаем вниз на 15 пикселей */
+    .second-row .VIP-sub-card {
+        transform: translateY(15px);
+    }
+
+    /* Настраиваем ховеры, чтобы при наведении карточки плавно двигались из своего нового положения */
+    .second-row .service-card:first-child:hover,
+    .second-row .service-card:last-child:hover {
+        transform: translateY(-25px); /* Приподнимается еще выше при наведении */
+    }
+
+    .second-row .VIP-sub-card:hover {
+        transform: translateY(5px); /* Подтягивается чуть выше при наведении */
+    }
+}
