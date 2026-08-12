@@ -764,13 +764,6 @@ html {
     }
 }
 
-/* Общие настройки сеток для обоих рядов */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    align-items: start; /* Выравниваем карточки по верхней линии ряда */
-}
 
 /* Задаем стандартный отступ для второго ряда */
 .second-row {
@@ -782,7 +775,7 @@ html {
     /* Крайние карточки второго ряда приподнимаются ближе к первому ряду */
     .second-row .service-card:first-child,
     .second-row .service-card:last-child {
-        transform: translateY(-30px);
+        transform: translateY(-90px);
     }
 
     /* Центральная карточка второго ряда опускается ниже */
@@ -793,7 +786,7 @@ html {
     /* Интерактивные ховер-эффекты с учетом исходного смещения */
     .second-row .service-card:first-child:hover,
     .second-row .service-card:last-child:hover {
-        transform: translateY(-40px); /* Приподнимается чуть выше при наведении */
+        transform: translateY(-100px); /* Приподнимается чуть выше при наведении */
     }
 
     .second-row .VIP-sub-card:hover {
