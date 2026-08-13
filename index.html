@@ -3,7 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A. Ikti Design | Айдентика & Frontend-разработка</title>
+    
+    <!-- Базовое SEO -->
+    <title>A. Ikti Design | Создание логотипов, фирменного стиля и сайтов на коде под ключ</title>
+    <meta name="description" content="Разработка премиального фирменного стиля, логотипов, визиток и уникальных сайтов-визиток на чистом коде (HTML/CSS/JS) без конструкторов. Пакетные решения для вашего бизнеса под ключ.">
+    <meta name="keywords" content="разработка логотипа, фирменный стиль под ключ, заказать сайт визитку, дизайн визитки, full-stack дизайнер, сайт на html css, айдентика для бизнеса">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="A. Ikti Design">
+
+    <!-- Open Graph (Красивое превью ссылки в ВК, Telegram, МАХ) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.io">
+    <meta property="og:title" content="A. Ikti Design | Премиальный дизайн и чистый код для бизнеса">
+    <meta property="og:description" content="Эксклюзивные логотипы, фирменный стиль и быстрые адаптивные сайты на чистом коде без шаблонов и переплат за конструкторы.">
+    <meta property="og:image" content="https://github.iologo-sign.png">
+
+    <!-- Подключение шрифтов и стилей -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -43,6 +58,19 @@
             <p class="hero-description">
                 Эксклюзивные логотипы, фирменный стиль и адаптивные сайты-визитки на чистом HTML, CSS и JavaScript. Без шаблонов, конструкторов и лишних переплат за платформы.
             </p>
+
+            
+            <!-- БЛОК АКЦИИ НА ГЛАВНОМ ЭКРАНЕ -->
+            <div class="promo-badge-box">
+                <span class="pulse-dot"></span>
+                <p class="promo-text">
+                    
+                    🔥  <strong>Акция для первых 3-х клиентов:</strong> скидка <span class="gold-highlight">20% на ВСЁ</span> и настройка хостинга <span class="gold-highlight">в подарок!</span>
+                    <p></p>
+                </p>
+            </div>
+            <!-- БЛОК АКЦИИ НА ГЛАВНОМ ЭКРАНЕ -->
+
             
             <div class="hero-actions">
                 <!-- Кнопка теперь в легком контурном стиле -->
@@ -53,16 +81,18 @@
     </main>
 
     <!-- БЛОК УСЛУГ И ЦЕН -->
+    <!-- СЕКЦИЯ УСЛУГ (ДВА РЯДА КАРТОЧЕК) -->
     <section class="services-section scroll-reveal" id="services">
         <p class="section-subtitle">Прайс-лист</p>
         <h2 class="section-title">Услуги и пакетные решения</h2>
         
-        <div class="services-grid">
+        <!-- РЯД 1: Основные услуги и Пакет -->
+        <div class="services-grid first-row">
             <!-- Карточка 1: Логотип -->
             <div class="service-card">
                 <div class="card-border"></div>
                 <h3 class="card-title">Разработка логотипа</h3>
-                <p class="card-price">от 7 000 ₽</p>
+                <p class="card-price"><span class="old-price">от 5 000 ₽</span> от 4 000 ₽</p>
                 <ul class="card-features">
                     <li>3 уникальных концепта</li>
                     <li>Векторные исходники (.AI, .SVG)</li>
@@ -73,16 +103,19 @@
 
             <!-- Карточка 2: Главный Пакет «Цифровой бренд» -->
             <div class="service-card VIP-card">
-                <div class="card-border"></div>
+                <div class="card-border"></div>              
                 <div class="badge">Популярно</div>
                 <h3 class="card-title">Пакет «Цифровой бренд»</h3>
-                <p class="card-price">от 25 000 ₽</p>
+                <p class="card-price"><span class="old-price">от 25 000 ₽</span> от 20 000 ₽</p>
                 <ul class="card-features">
                     <li><strong>Уникальный логотип</strong> под ключ</li>
                     <li><strong>Дизайн визитки</strong> к печати</li>
                     <li><strong>Сайт-визитка</strong> на чистом коде</li>
                     <li>100% Адаптивность и скорость</li>
                     <li>Без скрытых плат за платформы</li>
+
+                    <li>🎁  <span class="gold-highlight">Настройка хостинга бесплатно</span></li>
+                    
                     <li>Сроки: 10–14 дней</li>
                 </ul>
                 <a href="#contacts" class="btn-card">Заказать пакет</a>
@@ -92,12 +125,50 @@
             <div class="service-card">
                 <div class="card-border"></div>
                 <h3 class="card-title">Дизайн визитки</h3>
-                <p class="card-price">от 2 000 ₽</p>
+                <p class="card-price"><span class="old-price">от 2 000 ₽</span> от 1 600 ₽</p>
                 <ul class="card-features">
                     <li>Двусторонний макет</li>
                     <li>Подготовка к типографии</li>
                     <li>Уникальная сетка</li>
                     <li>Сроки: 1–2 дня</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- РЯД 2: Тарифы на сами сайты -->
+        <div class="services-grid second-row">
+            <!-- Тариф 1: Базовый -->
+            <div class="service-card sub-card">
+                <h4 class="sub-card-title">Базовый лендинг</h4>
+                <p class="card-price"><span class="old-price">от 20 000 ₽</span> от 16 000 ₽</p>
+                <ul class="card-features">
+                    <li>До 5 блоков страницы</li>
+                    <li>Интеграция мессенджеров</li>
+                    <li>Адаптивность под телефоны</li>
+                    <li>Чистая верстка (HTML/CSS)</li>
+                </ul>
+            </div>
+
+            <!-- Тариф 2: Расширенный (Соответствует сайту из пакета) -->
+            <div class="service-card sub-card">
+                <h4 class="sub-card-title">Расширенный лендинг</h4>
+                <p class="card-price"><span class="old-price">от 25 000 ₽</span> от 20 000 ₽</p>
+                <ul class="card-features">
+                    <li>До 10 интерактивных блоков</li>
+                    <li>Плавные анимации при скролле</li>
+                    <li>Интерактивные CSS-эффекты</li>
+                    <li>Настройка отправки форм на почту</li>
+                </ul>
+            </div>
+            <!-- Тариф 3: Премиум -->
+            <div class="service-card sub-card">
+                <h4 class="sub-card-title">Премиум лендинг</h4>
+                <p class="card-price"><span class="old-price">от 40 000 ₽</span> от 32 000 ₽</p>
+                <ul class="card-features">
+                    <li>Многостраничная структура</li>
+                    <li>Сложные 3D и JS анимации</li>
+                    <li>Кастомный функционал</li>
+                    <li>Эксклюзивные дизайн-решения</li>
                 </ul>
             </div>
         </div>
@@ -110,11 +181,12 @@
         
         <div class="portfolio-grid">
             <!-- Кейс 1 -->
-            <a href="https://slesarenko212.github.io/fetroma/" target="_blank" class="portfolio-item-link">
+            <a href="https://slesarenko212.github.io/designikti/" target="_blank" class="portfolio-item-link">
                 <div class="portfolio-item">
                     <div class="portfolio-img-wrapper">
                         <!-- Здесь будет скриншот вашего сайта -->
-                        <img src="fetroma-preview.jpg" alt="Сайт Fetroma" class="portfolio-img">
+                   <!--       <img src="fetroma-preview.jpg" alt="Сайт Fetroma" class="portfolio-img">     -->
+                        <div class="portfolio-placeholder" style="background: linear-gradient(135deg, #111, #222);"></div>
                     </div>
                     <div class="portfolio-info">
                         <p class="portfolio-category">Дизайн + Верстка под ключ</p>
@@ -157,11 +229,11 @@
         
         <div class="contacts-buttons-group">
             <!-- Ссылка на МАХ -->
-            <a href="https://max.ru" target="_blank" class="contact-link-btn max-btn">
+            <a href="https://max.ru/u/f9LHodD0cOL6trsCCQJUSuC7UiypQIjzDBNI-Tb24aF9iuxb_EG9Plq9vXM" target="_blank" class="contact-link-btn max-btn">
                 <span>Написать в МАХ</span>
             </a>
             <!-- Ссылка на ВК -->
-            <a href="https://vk.com" target="_blank" class="contact-link-btn vk-btn">
+            <a href="https://vk.com/pro100_n" target="_blank" class="contact-link-btn vk-btn">
                 <span>Открыть ВКонтакте</span>
             </a>
         </div>
